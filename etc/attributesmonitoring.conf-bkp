@@ -1,8 +1,0 @@
-[component_list]
-comp_keys = status totallag
-[actuator_healthaddress]
-address = http://$burrow_host:8000
-[actuator_healthcluster]
-cluster = $kafka_cluster
-[actuator_healthtimeout]
-timeout = 30
