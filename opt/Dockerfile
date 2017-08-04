@@ -1,7 +1,7 @@
 FROM python:3
 
-ENV burrow_host=dcbvm090dv601.e-unicred.com.br
-ENV kafka_cluster=kafka-dev
+ENV burrow_host=localhost
+ENV kafka_cluster=localhost
 
 RUN pip install --upgrade setuptools
 RUN pip install requests configparser
@@ -16,7 +16,7 @@ RUN sed -i 's/kafka_cluster/'"${kafka_cluster}"'/g' kafka-health_checker_consume
 
 RUN cp kafka-health_checker_consumer_group/etc/attributesmonitoring.conf /etc/attributesmonitoring.conf
 
-#CMD [ "python", "./kafka-health_checker_consumer_group/bin/health_checker_consumer_group.py", "0" ]
+CMD [ "python", "./kafka-health_checker_consumer_group/bin/health_checker_consumer_group.py", "0" ]
 
-RUN sed -i 's/burrow_host/'"${burrow_host}"'/g' kafka-health_checker_consumer_group/etc/attributesmonitoring.conf && sed -i 's/kafka_cluster/'"${kafka_cluster}"'/g' kafka-health_checker_consumer_group/etc/attributesmonitoring.conf && cp -rf kafka-health_checker_consumer_group/etc/attributesmonitoring.conf /etc/attributesmonitoring.conf && python ./kafka-health_checker_consumer_group/bin/health_checker_consumer_group.py 0
+#RUN sed -i 's/burrow_host/'"${burrow_host}"'/g' kafka-health_checker_consumer_group/etc/attributesmonitoring.conf && sed -i 's/kafka_cluster/'"${kafka_cluster}"'/g' kafka-health_checker_consumer_group/etc/attributesmonitoring.conf && cp -rf kafka-health_checker_consumer_group/etc/attributesmonitoring.conf /etc/attributesmonitoring.conf && python ./kafka-health_checker_consumer_group/bin/health_checker_consumer_group.py 0
 
