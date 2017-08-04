@@ -11,7 +11,10 @@ RUN git clone https://github.com/helkmut/kafka-health_checker_consumer_group
 RUN echo ${burrow_host}
 RUN echo ${kafka_cluster}
 
-CMD ["./kafka-health_checker_consumer_group/bin/entrypoint.sh", $burrow_host, $kafka_cluster]
+#CMD ["./kafka-health_checker_consumer_group/bin/entrypoint.sh", $burrow_host, $kafka_cluster]
+
+RUN sed -i 's/burrow_host/'"${burrow_host}"'/g' kafka-health_checker_consumer_group/etc/attributesmonitoring.conf
+RUN sed -i 's/burrow_host/'"${kafka_cluster}"'/g' kafka-health_checker_consumer_group/etc/attributesmonitoring.conf
 
 RUN cp kafka-health_checker_consumer_group/etc/attributesmonitoring.conf /etc/attributesmonitoring.conf
 
