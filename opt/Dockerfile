@@ -8,7 +8,7 @@ RUN pip install requests configparser
 
 RUN git clone https://github.com/helkmut/kafka-health_checker_consumer_group 
 
-ENTRYPOINT ["kafka-health_checker_consumer_group/bin/entrypoint.sh"]
+ENTRYPOINT ["kafka-health_checker_consumer_group/bin/entrypoint.sh", "${burrow_host}", "${kafka_cluster}"]
 
 RUN cp kafka-health_checker_consumer_group/etc/attributesmonitoring.conf /etc/attributesmonitoring.conf
 
