@@ -12,5 +12,9 @@ ENTRYPOINT ["kafka-health_checker_consumer_group/bin/entrypoint.sh", "${burrow_h
 
 RUN cp kafka-health_checker_consumer_group/etc/attributesmonitoring.conf /etc/attributesmonitoring.conf
 
+RUN cat kafka-health_checker_consumer_group/etc/attributesmonitoring.conf
+
+RUN /etc/attributesmonitoring.conf
+
 CMD [ "python", "./kafka-health_checker_consumer_group/bin/health_checker_consumer_group.py", "0" ]
 
