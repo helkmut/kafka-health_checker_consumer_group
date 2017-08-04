@@ -1,7 +1,7 @@
 FROM python:3
 
-ENV burrow_host=localhost
-ENV kafka_cluster=localhost
+ENV burrow_host=dcbvm090dv601.e-unicred.com.br
+ENV kafka_cluster=kafka-dev
 
 RUN pip install --upgrade setuptools
 RUN pip install requests configparser
