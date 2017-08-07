@@ -4,12 +4,13 @@
 
 0.1 - 13/07/2017
 0.2 - 04/08/2017
+0.3 - 07/08/2017
 
 ## Introducao
 
 Agente de coleta em Python3 para expor metricas obtidas pelo Burrow no formato do InfluxDB. 
 
-Em sua primeira versão(0.1) ainda tem como restricao coletar metricas de varios consumergroups de um unico cluster do Kafka. Tambem nao foi implementado o recurso de timeout, logo deve ser controlado atraves do programa que o consome / executa requisicao. 
+Em sua terceira versão(0.3) ainda tem como restricao coletar metricas de varios consumergroups de um unico cluster do Kafka. Tambem nao foi implementado o recurso de timeout, logo deve ser controlado atraves do programa que o consome / executa requisicao. 
 
 -> Wishlist
 
@@ -34,6 +35,19 @@ Example:
 ```shell
 ~/health_checker_consumer_group/bin/health_checker_consumer_group.py 0
 ```
+
+
+<br />
+Trabalhando com Docker: 
+
+```shell
+git clone https://github.com/helkmut/kafka-health_checker_consumer_group
+cd kafka-health_checker_consumer_group/opt
+docker build -t kafka-health_checker_consumer_group .
+docker run --env burrow_host=$my_burrow_hostip --env kafka_cluster=$my_kafka_cluster_name --name my_container kafka-health_checker_consumer_group
+
+```
+
 
 Onde: 
 
